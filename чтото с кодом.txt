@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Studend {
+	friend class Teacher;
+public:
+	static int ball;
+	int notif = 0;    // поле 
+	
+	void notification() {  // метод класса
+		notif++;
+        cout << "you have a nove notification " << notif << "\n";
+	}
+
+	string name = "???";
+	void helloname() {
+		cout << "Hello  " << name << "\n";
+
+	}
+	int get_phone() {
+		return tell;
+	}
+	void set_phone(int new_tell) {
+		tell = new_tell;
+	}
+	static void ball2() {
+		ball++;
+	}
+private:
+	int tell = 89952252732;
+	void Phone() {
+		cout << "You pshone " << tell << "\n";
+	};
+
+	void speakq() {
+		cout << "Can I go? " << "\n";
+	}
+	void speak() {
+		cout << "thanks, my teacher\n";
+	}
+
+	
+	
+};
+int Studend::ball = 8;
+
+class Teacher {
+	public:
+		void Student_speak(Studend& s) {
+			s.speakq();
+			cout << "Yes!\n";
+			s.speak();
+		}
+
+};
+int main() {
+	Studend s;
+	Teacher t;
+	 s.notification();
+	 s.helloname();
+	 s.set_phone(80999);
+	 cout << s.get_phone() << endl;
+	 t.Student_speak(s);
+	 Studend::ball2();
+
+	 
+
+ }
+
